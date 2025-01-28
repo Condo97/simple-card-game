@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2s4nxkqejwv8"]
+
+[ext_resource type="Script" path="res://scripts/DeckWithOptionsUI.gd" id="1_5ivdm"]
+[ext_resource type="PackedScene" uid="uid://dh2yuyicm60cp" path="res://scenes/DeckUI.tscn" id="2_q4xd5"]
+[ext_resource type="Theme" uid="uid://bei4mlyebp5ks" path="res://themes/Button_Theme.tres" id="3_evwk8"]
+
+[node name="DeckWithOptionsUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5ivdm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DeckUI" parent="VBoxContainer" instance=ExtResource("2_q4xd5")]
+layout_mode = 2
+
+[node name="ViewDeck_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_evwk8")
+text = "View Deck"
+
+[connection signal="button_up" from="VBoxContainer/ViewDeck_Button" to="." method="_on_view_deck_button_button_up"]

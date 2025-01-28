@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3orn11nlkdpo"]
+
+[ext_resource type="PackedScene" uid="uid://3xwtmbyyphgq" path="res://scenes/Main.tscn" id="1_4thtm"]
+
+[node name="MainWindow" type="Window"]
+position = Vector2i(7630, 4270)
+size = Vector2i(1260, 1000)
+
+[node name="Main" parent="." instance=ExtResource("1_4thtm")]

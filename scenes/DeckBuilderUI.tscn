@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://iil8cg3eh2tb"]
+
+[ext_resource type="Script" path="res://scripts/DeckBuilderUI.gd" id="1_cvj5e"]
+[ext_resource type="Theme" uid="uid://bei4mlyebp5ks" path="res://themes/Button_Theme.tres" id="2_rehpj"]
+[ext_resource type="Theme" uid="uid://dcl8r801cmij4" path="res://themes/Text_Edit_Theme.tres" id="3_f0qxi"]
+
+[node name="DeckBuilderUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvj5e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DeckDisplay_ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 6000)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckDisplay_GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/DeckDisplay_ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 5
+
+[node name="CardLibrary_ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 6000)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardLibrary_GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/CardLibrary_ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 5
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -438.0
+offset_right = 392.0
+offset_bottom = 438.0
+grow_vertical = 2
+theme = ExtResource("2_rehpj")
+text = "Cancel
+"
+
+[node name="DeckName_TextEdit" type="TextEdit" parent="VBoxContainer/Control"]
+custom_minimum_size = Vector2(1000, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -75.0
+offset_right = 500.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_f0qxi")
+text = "Hello"
+placeholder_text = "Hello"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -438.0
+offset_bottom = 438.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_rehpj")
+disabled = true
+text = "Save
+"
+
+[connection signal="button_up" from="VBoxContainer/Control/CancelButton" to="." method="_on_cancel_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/SaveButton" to="." method="_on_save_button_button_up"]

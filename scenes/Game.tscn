@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b43ktu2mng4wb"]
+
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_dwrqg"]
+[ext_resource type="Script" path="res://scripts/TouchManager.gd" id="2_e3jjc"]
+[ext_resource type="PackedScene" uid="uid://b06m8fni7rrv8" path="res://scenes/Board.tscn" id="3_twxl5"]
+[ext_resource type="PackedScene" uid="uid://67hhgbwqrj07" path="res://scenes/PlayerInterface.tscn" id="4_070y0"]
+[ext_resource type="Theme" uid="uid://bei4mlyebp5ks" path="res://themes/Button_Theme.tres" id="5_5viuv"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_dwrqg")
+
+[node name="TouchManager" type="Node2D" parent="."]
+script = ExtResource("2_e3jjc")
+
+[node name="Board_p1" parent="." instance=ExtResource("3_twxl5")]
+position = Vector2(5700, 5140)
+
+[node name="Board_p2" parent="." instance=ExtResource("3_twxl5")]
+position = Vector2(5700, 1957)
+rotation = 3.14159
+
+[node name="PlayerInterface_p1" parent="." instance=ExtResource("4_070y0")]
+
+[node name="PlayerInterface_p2" parent="." instance=ExtResource("4_070y0")]
+visible = false
+
+[node name="ChangePlayerButton" type="Button" parent="."]
+offset_left = 8263.0
+offset_top = 6426.0
+offset_right = 9045.0
+offset_bottom = 6599.0
+theme = ExtResource("5_5viuv")
+text = "Switch Player"
+
+[connection signal="button_up" from="ChangePlayerButton" to="." method="_on_change_player_button_button_up"]

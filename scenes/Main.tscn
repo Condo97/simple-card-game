@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://3xwtmbyyphgq"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_a3w8f"]
+[ext_resource type="PackedScene" uid="uid://d1i444ia4a1md" path="res://scenes/WyrmDatabase.tscn" id="3_txlmv"]
+[ext_resource type="PackedScene" uid="uid://dvnieen3gaijh" path="res://scenes/AirtableWyrmNetworkController.tscn" id="4_12fja"]
+[ext_resource type="PackedScene" uid="uid://wkrnrwrace1r" path="res://scenes/MainUI.tscn" id="6_rs4fn"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_a3w8f")
+
+[node name="WyrmDatabase" parent="." instance=ExtResource("3_txlmv")]
+
+[node name="AirtableWyrmNetworkController" parent="." instance=ExtResource("4_12fja")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUI" parent="CanvasLayer" instance=ExtResource("6_rs4fn")]
+visible = false

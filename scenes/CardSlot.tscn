@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvl5qlhuq7bci"]
+
+[ext_resource type="Script" path="res://scripts/CardSlot.gd" id="1_ann6r"]
+[ext_resource type="Texture2D" uid="uid://cp18yp5se0s6i" path="res://assets/Test Card.png" id="1_ogjvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fhgj"]
+size = Vector2(750, 1050)
+
+[node name="CardSlot" type="Node2D"]
+script = ExtResource("1_ann6r")
+
+[node name="Alignment Card Sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ogjvn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4fhgj")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1i444ia4a1md"]
+
+[ext_resource type="Script" path="res://scripts/WyrmDatabase.gd" id="1_kfswy"]
+[ext_resource type="PackedScene" uid="uid://dvnieen3gaijh" path="res://scenes/AirtableWyrmNetworkController.tscn" id="2_76lgk"]
+
+[node name="WyrmDatabase" type="Node2D"]
+script = ExtResource("1_kfswy")
+
+[node name="GoogleSheetsDataFetcher" parent="." instance=ExtResource("2_76lgk")]

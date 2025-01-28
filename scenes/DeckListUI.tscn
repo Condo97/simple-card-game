@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0bgxae72qsaw"]
+
+[ext_resource type="Script" path="res://scripts/DeckListUI.gd" id="1_w20jj"]
+
+[node name="DeckListUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w20jj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="DeckList_HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 4

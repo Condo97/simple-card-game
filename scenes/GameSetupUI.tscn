@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=3 uid="uid://fso5mb2m5nl"]
+
+[ext_resource type="Script" path="res://scripts/GameSetupUI.gd" id="1_ac6yl"]
+[ext_resource type="Theme" uid="uid://bei4mlyebp5ks" path="res://themes/Button_Theme.tres" id="2_0ni80"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybhju"]
+font_size = 500
+
+[sub_resource type="LabelSettings" id="LabelSettings_xiknn"]
+font_size = 150
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameSetupUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ac6yl")
+
+[node name="View" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="View"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="View/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="View/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "choose decks"
+label_settings = SubResource("LabelSettings_ybhju")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="View/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckArea_P1" type="Control" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2500, 3500)
+layout_mode = 2
+
+[node name="DeckArea_ColorRect_P1" type="ColorRect" parent="View/MarginContainer/VBoxContainer/HBoxContainer/DeckArea_P1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AddP1DeckLabel" type="Label" parent="View/MarginContainer/VBoxContainer/HBoxContainer/DeckArea_P1/DeckArea_ColorRect_P1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "click to add Player 1 deck"
+label_settings = SubResource("LabelSettings_xiknn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckArea_P2" type="Control" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2500, 3500)
+layout_mode = 2
+
+[node name="DeckArea_ColorRect_P2" type="ColorRect" parent="View/MarginContainer/VBoxContainer/HBoxContainer/DeckArea_P2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AddP2DeckLabel" type="Label" parent="View/MarginContainer/VBoxContainer/HBoxContainer/DeckArea_P2/DeckArea_ColorRect_P2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "click to add Player 2 deck"
+label_settings = SubResource("LabelSettings_xiknn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="View/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="View/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_0ni80")
+theme_override_font_sizes/font_size = 500
+text = "back"
+
+[node name="Control" type="Control" parent="View/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="View/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_0ni80")
+theme_override_font_sizes/font_size = 500
+disabled = true
+text = "start"
+
+[connection signal="gui_input" from="View/MarginContainer/VBoxContainer/HBoxContainer/DeckArea_P1/DeckArea_ColorRect_P1" to="." method="_on_deck_area_color_rect_p_1_gui_input"]
+[connection signal="gui_input" from="View/MarginContainer/VBoxContainer/HBoxContainer/DeckArea_P2/DeckArea_ColorRect_P2" to="." method="_on_deck_area_color_rect_p_2_gui_input"]
+[connection signal="button_up" from="View/MarginContainer/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="View/MarginContainer/VBoxContainer/HBoxContainer2/StartButton" to="." method="_on_start_button_button_up"]

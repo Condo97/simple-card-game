@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxdfgwhv8cn3y"]
+
+[ext_resource type="Script" path="res://scripts/EditDeckListUI.gd" id="1_citxo"]
+[ext_resource type="PackedScene" uid="uid://b0bgxae72qsaw" path="res://scenes/DeckListUI.tscn" id="2_85ca4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnyp3"]
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+expand_margin_left = 200.0
+expand_margin_top = 200.0
+expand_margin_right = 200.0
+expand_margin_bottom = 200.0
+
+[node name="EditDeckListUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_citxo")
+
+[node name="View" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="View"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 500
+
+[node name="VBoxContainer" type="VBoxContainer" parent="View/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="View/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 500
+text = "Edit Decks"
+
+[node name="DeckListUI" parent="View/MarginContainer/VBoxContainer" instance=ExtResource("2_85ca4")]
+custom_minimum_size = Vector2(10000, 3500)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="View/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 800
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 800
+
+[node name="BackButton" type="Button" parent="View/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 500
+theme_override_styles/hover = SubResource("StyleBoxFlat_fnyp3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fnyp3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnyp3")
+text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="View/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 800
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 800
+
+[node name="AddDeckButton" type="Button" parent="View/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 500
+theme_override_styles/hover = SubResource("StyleBoxFlat_fnyp3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fnyp3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnyp3")
+text = "Add Deck"
+
+[connection signal="button_up" from="View/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="View/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/AddDeckButton" to="." method="_on_add_deck_button_button_up"]

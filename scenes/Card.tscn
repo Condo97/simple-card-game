@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://1whu70galcos"]
+
+[ext_resource type="Script" path="res://scripts/Card.gd" id="1_gejr5"]
+[ext_resource type="Texture2D" uid="uid://cp18yp5se0s6i" path="res://assets/Test Card.png" id="2_agxwo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lp8qk"]
+font_size = 80
+outline_size = 28
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_03oew"]
+font_size = 60
+outline_size = 28
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hybm2"]
+font_size = 38
+outline_size = 28
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csk6a"]
+size = Vector2(750, 1054)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_gejr5")
+
+[node name="Card Image Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_agxwo")
+
+[node name="Cost" type="Label" parent="."]
+offset_left = -348.0
+offset_top = -479.0
+offset_right = -232.0
+offset_bottom = -369.0
+text = "0"
+label_settings = SubResource("LabelSettings_lp8qk")
+horizontal_alignment = 1
+
+[node name="Attack" type="Label" parent="."]
+offset_left = -348.0
+offset_top = 370.0
+offset_right = -232.0
+offset_bottom = 480.0
+text = "0"
+label_settings = SubResource("LabelSettings_lp8qk")
+horizontal_alignment = 1
+
+[node name="Defense" type="Label" parent="."]
+offset_left = 233.0
+offset_top = 370.0
+offset_right = 349.0
+offset_bottom = 480.0
+text = "0"
+label_settings = SubResource("LabelSettings_lp8qk")
+horizontal_alignment = 1
+
+[node name="Card Name" type="Label" parent="."]
+offset_left = -347.0
+offset_top = 56.0
+offset_right = 346.0
+offset_bottom = 174.0
+text = "Card Name"
+label_settings = SubResource("LabelSettings_03oew")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card Description" type="Label" parent="."]
+offset_left = -199.0
+offset_top = 199.0
+offset_right = 198.0
+offset_bottom = 454.0
+text = "this is the description"
+label_settings = SubResource("LabelSettings_hybm2")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_csk6a")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://wkrnrwrace1r"]
+
+[ext_resource type="Script" path="res://scripts/Main_UI.gd" id="1_htx4d"]
+[ext_resource type="Theme" uid="uid://bei4mlyebp5ks" path="res://themes/Button_Theme.tres" id="2_tthin"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmlq3"]
+font_size = 800
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_htx4d")
+
+[node name="View - parent for hiding when subviews are shown" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="View - parent for hiding when subviews are shown"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="View - parent for hiding when subviews are shown/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Wyrm Card Game!"
+label_settings = SubResource("LabelSettings_qmlq3")
+horizontal_alignment = 1
+
+[node name="PlayGameButton" type="Button" parent="View - parent for hiding when subviews are shown/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tthin")
+theme_override_font_sizes/font_size = 800
+text = "Play Game"
+
+[node name="EditDecksButton" type="Button" parent="View - parent for hiding when subviews are shown/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tthin")
+theme_override_font_sizes/font_size = 800
+text = "Edit Decks"
+
+[connection signal="button_up" from="View - parent for hiding when subviews are shown/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_button_up"]
+[connection signal="button_up" from="View - parent for hiding when subviews are shown/VBoxContainer/EditDecksButton" to="." method="_on_edit_decks_button_button_up"]

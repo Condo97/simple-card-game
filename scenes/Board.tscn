@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b06m8fni7rrv8"]
+
+[ext_resource type="Texture2D" uid="uid://djo8f7wmcwntv" path="res://assets/Board.png" id="1_usi8m"]
+[ext_resource type="Script" path="res://scripts/Board.gd" id="1_ycdt0"]
+[ext_resource type="PackedScene" uid="uid://cql57ymwitjtl" path="res://scenes/CharacterCardSlot.tscn" id="3_ct7kb"]
+[ext_resource type="PackedScene" uid="uid://dcw2e6h1slp52" path="res://scenes/Discard.tscn" id="3_slp38"]
+[ext_resource type="PackedScene" uid="uid://nm8hwpuwyes6" path="res://scenes/Deck.tscn" id="3_wmvwu"]
+[ext_resource type="PackedScene" uid="uid://cvl5qlhuq7bci" path="res://scenes/CardSlot.tscn" id="6_m8ndw"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_ycdt0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_usi8m")
+
+[node name="Discard" parent="." instance=ExtResource("3_slp38")]
+position = Vector2(1000, 310)
+
+[node name="Deck" parent="." instance=ExtResource("3_wmvwu")]
+position = Vector2(1878, 310)
+
+[node name="CharacterCardSlot1" parent="." instance=ExtResource("3_ct7kb")]
+position = Vector2(-1874, -858)
+
+[node name="CharacterCardSlot2" parent="." instance=ExtResource("3_ct7kb")]
+position = Vector2(-991, -858)
+
+[node name="CharacterCardSlot3" parent="." instance=ExtResource("3_ct7kb")]
+position = Vector2(-120, -858)
+
+[node name="TreasureSlot1" parent="." instance=ExtResource("6_m8ndw")]
+position = Vector2(-1874, 308)
+
+[node name="TreasureSlot2" parent="." instance=ExtResource("6_m8ndw")]
+position = Vector2(-991, 308)
+
+[node name="TreasureSlot3" parent="." instance=ExtResource("6_m8ndw")]
+position = Vector2(-120, 308)

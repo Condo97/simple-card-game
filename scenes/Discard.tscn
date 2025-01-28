@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcw2e6h1slp52"]
+
+[ext_resource type="Script" path="res://scripts/Discard.gd" id="1_41xr1"]
+[ext_resource type="PackedScene" uid="uid://cvl5qlhuq7bci" path="res://scenes/CardSlot.tscn" id="1_kvwwi"]
+[ext_resource type="Texture2D" uid="uid://b0finn81vq18y" path="res://assets/Card Back.png" id="1_vs1uc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jxfq"]
+size = Vector2(746, 1044)
+
+[node name="Discard" type="Node2D"]
+script = ExtResource("1_41xr1")
+
+[node name="CardSlot" parent="." instance=ExtResource("1_kvwwi")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_vs1uc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5jxfq")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
